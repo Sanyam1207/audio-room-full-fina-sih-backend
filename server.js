@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 // Initialize Socket.IO with CORS enabled for development
 const io = new Server(server, {
-    cors: { origin: "*", methods: ["GET", "POST"] }
+    cors: { origin: "https://audio-room-full-fina-sih-frontend.vercel.app", methods: ["GET", "POST"] }
 });
 
 io.on('connection', (socket) => {
