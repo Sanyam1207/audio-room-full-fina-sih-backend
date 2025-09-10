@@ -8,7 +8,15 @@ const server = http.createServer(app);
 
 // Initialize Socket.IO with CORS enabled for development realtime
 const io = new Server(server, {
-    cors: { origin: ["http://sih-2025-white-board.vercel.app"], methods: ["GET", "POST"] }
+    cors: {
+        origin: [
+            "https://sih-2025-white-board.vercel.app",
+            "http://sih-2025-white-board.vercel.app"
+        ],
+        methods: ["GET", "POST"],
+        credentials: true
+    },
+    transports: ['polling', 'websocket'] // Enable both polling and websocket transports
 });
 
 io.on('connection', (socket) => {
